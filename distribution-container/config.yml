@@ -1,0 +1,25 @@
+version: 0.1
+log:
+  level: debug
+
+storage:
+  filesystem:
+    rootdirectory: /tmp/registry
+
+http:
+  addr: 0.0.0.0:5002
+  headers:
+    Access-Control-Allow-Origin: ['http://localhost:3000']
+    Access-Control-Allow-Methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS']
+    Access-Control-Allow-Headers: ['Authorization', 'Content-Type', 'Accept']
+
+policy:
+  Repository:
+    Classes: ['image', 'plugin']
+    AllowedNames: ['approved']
+
+telemetry:
+  enabled: false
+  opentelemetry:
+    enabled: false
+    endpoint: ''
